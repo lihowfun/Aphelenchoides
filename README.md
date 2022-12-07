@@ -10,9 +10,7 @@ perl repeatmasker.stat.pl <normalized output>
 ```
 
 ## Synteny (fig3)
-### Synteny relationship between nematodes were inferred using orthofinder, and the scripts below help to generate synteny location
-### input files from orthofinder included Orthogroups.txt SequenceIDs.txt SpeciesIDs.txt
-### script might need to modify according to the format of gff
+### Synteny relationship between nematodes were inferred using orthofinder, and the scripts below help to generate synteny location. The input files from orthofinder included Orthogroups.txt SequenceIDs.txt SpeciesIDs.txt. Code might need to modify according to the format of gff
 
 ```
 perl Orthofinder.one2one_loca.pl Orthogroups.txt SequenceIDs.txt SpeciesIDs.txt <Specie gff A> <Specie gff B>
