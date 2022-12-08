@@ -1,7 +1,7 @@
 # Aphelenchoides
 ## This site provide the codes for the genome project of Aphelenchoides nematodes (The Aphelenchoides genomes reveal substantial horizontal gene transfers in the last common ancestor of free-living and major plant parasitic nematodes)
-"\
-"\
+&nbsp;
+&nbsp;
 
 ## Statistic of repeat elements (fig1 and fig2)
 ### after running Repeatmoduler and TransposonPSI we combined the fasta file together to cluster the consensus repeat elements using USEARCH. And the consensus of repeat fasta files were used to compute the repeat locations using Repeatmasker. The output of Repeatmasker <genome fasta name>.out can use the bedtools merge tool to merge the overlap regions and then used the scrips below to count the repeats size  
