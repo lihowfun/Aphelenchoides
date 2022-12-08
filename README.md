@@ -24,5 +24,15 @@ perl runCAZYme.v3.pl .
 perl Orthofinder.one2one_loca.pl Orthogroups.txt SequenceIDs.txt SpeciesIDs.txt <Specie gff A> <Specie gff B>
 ``` 
   
-## Horizontal gene transfer (fig4 and fig5)
-### To estimate the genome  
+## Horizontal gene transfer (HGT) (fig4 and fig5)
+### To estimate the HGT possibility of each genes across nematodes, we applied Alienness Index (AI) (Rancurel et al., 2017) method. To speed up the running process, we sepatated the Metazoan and non-Metazoan into two fasta files from NCBI NR database using NCBI tool (ncbi-blast-2.11.0).
+#### The example of Metazoan data ara following below  
+  
+```  
+get_species_taxids.sh -n metazoans # search the taxID of Metazoan
+get_species_taxids.sh -t 33208 > metazoans.33208.txids  # get all the Metazoan taxID into file, you may need to exclude the taxID which are closely related with the species we used to prevent self-alignment
+blastdbcmd -db <NR database location> -taxidlist metazoans.33208.txids -target_only -out metazoan.fa  # get the metazoan output according to the taxID
+diamond makedb -d metazoan --in metazoan.fa # diamond database format  
+```
+  
+
