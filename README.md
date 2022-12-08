@@ -29,7 +29,7 @@ perl Orthofinder.one2one_loca.pl Orthogroups.txt SequenceIDs.txt SpeciesIDs.txt 
 &nbsp;
 &nbsp;
 ## Horizontal gene transfer (HGT) (fig4 and fig5)
-### To estimate the HGT possibility of each genes across nematodes, we applied Alienness Index (AI) (Rancurel et al., 2017) method. To speed up the running process, we sepatated the Metazoan and non-Metazoan into two fasta files from NCBI NR database using NCBI tool (ncbi-blast-2.11.0).
+### To estimate the HGT possibility of each genes across nematodes, we applied Alienness Index (AI) (Rancurel et al., 2017; http://alienness.sophia.inra.fr/cgi/index.cgi) method. To speed up the running process, we sepatated the Metazoan and non-Metazoan into two fasta files from NCBI NR database using NCBI tool (ncbi-blast-2.11.0).
 &nbsp;
 ncbi-blast-2.11.0 is need to install and export (ncbi-blast-2.11.0/bin) to environment  
 #### The example of Metazoan data ara following below:  
@@ -42,7 +42,7 @@ diamond makedb -d metazoan --in metazoan.fa # diamond database format
 ```
 &nbsp;  
 ### AI score of genes across nematodes
-####To combine the CAZyme results and AI index together, we worked in the same folder of CAZyme (runCAZYme.pl). Before running AI_index, we need to set up the environment and prepare the input data. We used the ncbi tool (blastdbcmd) and assigned the hit phyla according to the nodeDB.txt (generate from: https://github.com/blaxterlab/blobology)
+#### To combine the CAZyme results and AI index together, we worked in the same folder of CAZyme (runCAZYme.pl). Before running AI_index, we need to set up the environment and prepare the input data. We used the ncbi tool (blastdbcmd) and assigned the hit phyla according to the nodeDB.txt (generate from: https://github.com/blaxterlab/blobology)
  
 #### The following script and file need to put in this folder or export to environment   
 * blast_meta.diamond.pl
