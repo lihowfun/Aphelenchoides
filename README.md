@@ -13,7 +13,7 @@ perl repeatmasker.stat.pl <normalized output>
 ### This script help to run the CAZyme script of mutiple species in one script. We put all the protein fasta file in same folder in <specie_name>.fasta format. After running this script, the copies number of CAZyme across each nematodes species with output name "HmmNum.txt" will be generated.
 
 ```
-perl runCAZYme.v3.pl . 
+perl runCAZYme.pl . 
 ```
 
 
@@ -30,15 +30,16 @@ perl Orthofinder.one2one_loca.pl Orthogroups.txt SequenceIDs.txt SpeciesIDs.txt 
   
 ```  
 get_species_taxids.sh -n metazoans # search the taxID of Metazoan
-get_species_taxids.sh -t 33208 > metazoans.33208.txids  # get all the Metazoan taxID into file, you may need to exclude the taxID which are closely related with the species we used to prevent self-alignment
+get_species_taxids.sh -t 33208 > metazoans.33208.txids # get all the Metazoan taxID into file, you may need to exclude the taxID which are closely related with the species we used to prevent self-alignment
 blastdbcmd -db <NR database location> -taxidlist metazoans.33208.txids -target_only -out metazoan.fa  # get the metazoan output according to the taxID
 diamond makedb -d metazoan --in metazoan.fa # diamond database format  
 ```
 
  ### AI score of genes across nematodes
+ To combine the CAZyme results and AI index together, we worked in the same folder of CAZyme (runCAZYme.pl). Before running AI_index, we need to set up the environment and prepare the input data. We used the ncbi tool (blastdbcmd) and assigned the hit phyla according to the nodeDB.txt (generate from: https://github.com/blaxterlab/blobology)
  
  ```
-  
+ export <> 
  ```
   
   
