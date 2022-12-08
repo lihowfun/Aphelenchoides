@@ -49,14 +49,14 @@ diamond makedb -d metazoan --in metazoan.fa # diamond database format
 * AI_index.pl  
 * AI_index.batch.pl  
 &nbsp;   
-* Orthofinder.txt (from orthofinder)
-*  
+* Orthofinder.txt #(from orthofinder)
+* metazoan and non-dmnd #(from diamond makedb)
   
 * ncbi-blast-2.11.0/bin 
 * nodesDB.txt  
   
  ```
-
+perl AI_index.batch.pl . <Metazoan.dmnd> <non-Metazoan.dmnd>
   
  ```
   
