@@ -10,7 +10,7 @@ perl repeatmasker.stat.pl <normalized output>
 ```
 
 ## Batch running and Count the copy numbers of CAZyme (fig2)
-### This script help to run the CAZyme script of mutiple species in one script. We put all the protein fasta file in same folder in <specie_name>.fasta format. After running this script, the copies number of CAZyme across each nematodes species with name "HmmNum.txt" will be generated.
+### This script help to run the CAZyme script of mutiple species in one script. We put all the protein fasta file in same folder in <specie_name>.fasta format. After running this script, the copies number of CAZyme across each nematodes species with output name "HmmNum.txt" will be generated.
 
 ```
 perl runCAZYme.v3.pl . 
