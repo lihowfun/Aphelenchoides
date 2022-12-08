@@ -53,10 +53,11 @@ diamond makedb -d metazoan --in metazoan.fa # diamond database format
 * Orthofinder.txt (from orthofinder)
 * metazoan and non-dmnd (from diamond makedb)
 * ncbi-blast-2.11.0/bin 
-* nodesDB.txt  
+* nodesDB.txt  (https://drive.google.com/file/d/11HHqQslWfJ7Id8fqV8hLJ2DDFFRkO_pR/view?usp=share_link; we generated in the beginning of 2022, it should be updated when NR have better version)
   
  ```
-perl AI_index.batch.pl . <Metazoan.dmnd> <non-Metazoan.dmnd>
+export PATH="HGT_scrpts" # export the environment HGT scripts  
+  perl AI_index.batch.pl . <Metazoan.dmnd> <non-Metazoan.dmnd>
   
  ```
   
