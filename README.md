@@ -1,5 +1,6 @@
 # Aphelenchoides
 ## This site provide the codes for the genome project of Aphelenchoides nematodes (The Aphelenchoides genomes reveal substantial horizontal gene transfers in the last common ancestor of free-living and major plant parasitic nematodes)
+
 &nbsp;
 &nbsp;
 
@@ -29,7 +30,7 @@ perl Orthofinder.one2one_loca.pl Orthogroups.txt SequenceIDs.txt SpeciesIDs.txt 
 &nbsp;
 ## Horizontal gene transfer (HGT) (fig4 and fig5)
 ### To estimate the HGT possibility of each genes across nematodes, we applied Alienness Index (AI) (Rancurel et al., 2017) method. To speed up the running process, we sepatated the Metazoan and non-Metazoan into two fasta files from NCBI NR database using NCBI tool (ncbi-blast-2.11.0).
-"\
+&nbsp;
 ncbi-blast-2.11.0 is need to install and export (ncbi-blast-2.11.0/bin) to environment  
 #### The example of Metazoan data ara following below:  
   
