@@ -9,6 +9,14 @@ perl repeatmasker.normalized.pl <Repeatmasker output>
 perl repeatmasker.stat.pl <normalized output>
 ```
 
+## Batch running and Count the copy numbers of CAZyme (fig2)
+### This script help to run the CAZyme script of mutiple species in one script. We put all the protein fasta file in same folder in <specie_name>.fasta format. After running this script, the copies number of CAZyme across each nematodes species with name "HmmNum.txt" will be generated.
+
+```
+perl runCAZYme.v3.pl . 
+```
+
+
 ## Synteny (fig3)
 ### Synteny relationship between nematodes were inferred using orthofinder, and the scripts below help to generate synteny location. The input files from orthofinder included Orthogroups.txt SequenceIDs.txt SpeciesIDs.txt. Code might need to modify according to the format of gff
 
