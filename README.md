@@ -20,10 +20,7 @@ transposonPSI.pl <genome fasta> nuc
 usearch8.1.1861_i86linux64 -sortbylength merged.fa -fastaout seqs_sorted.fasta # merged.fa is the file cat from RepeatModuler and TransposonPSI output  
 usearch8.1.1861_i86linux64 -strand both -cluster_smallmem seqs_sorted.fasta -id 0.8 -centroids nr.fasta -uc clusters.uc  
   
-  
-# Repeatmasker  
-  
-```
+# Repeatmasker    
 mkdir denovoRepeat  
 RepeatMasker -pa <CPU number> -gff  -dir denovoRepeat  -lib repeatLib.fa  -xsmall <genome fasta> # repeatLib.fa is the repeat library created by the USEARCH  
 ```  
