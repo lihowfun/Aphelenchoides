@@ -62,7 +62,7 @@ diamond makedb -d metazoan --in metazoan.fa # diamond database format
 ```
 &nbsp;  
 ### AI score of genes across nematodes
-#### To combine the CAZyme results and AI index together, we worked in the same folder of CAZyme (runCAZYme.pl). Before running AI_index, we need to set up the environment and prepare the input data. We used the ncbi tool (blastdbcmd) and assigned the hit phyla according to the nodeDB.txt (generate from: https://github.com/blaxterlab/blobology)
+#### To combine the CAZyme results and AI index together, we worked in the same folder of CAZyme (runCAZYme.pl). Before running AI_index, we need to set up the environment and prepare the input data. We used the NCBI tool (blastdbcmd) and assigned the hit phyla according to the nodeDB.txt (generate from: https://github.com/blaxterlab/blobology)
  
 #### The following script and file need to put in this folder or export to environment   
 * blast_meta.diamond.pl
@@ -73,23 +73,30 @@ diamond makedb -d metazoan --in metazoan.fa # diamond database format
 * Orthofinder.txt (from orthofinder)
 * metazoan and non-dmnd (from diamond makedb)
 * ncbi-blast-2.11.0/bin 
-* nodesDB.txt  (https://drive.google.com/file/d/11HHqQslWfJ7Id8fqV8hLJ2DDFFRkO_pR/view?usp=share_link; we generated in the beginning of 2022, it should be updated when NR have better version)
+* nodesDB.txt  (https://drive.google.com/file/d/11HHqQslWfJ7Id8fqV8hLJ2DDFFRkO_pR/view?usp=share_link; we generated in the beginning of 2022, it should be updated when NR have a better version)
   
  ```
 export PATH="HGT_scrpts" # export the environment HGT scripts  
-  perl AI_index.batch.pl . <Metazoan.dmnd> <non-Metazoan.dmnd>
+perl AI_index.batch.pl . <Metazoan.dmnd> <non-Metazoan.dmnd>
   
  ```
   
  &nbsp;  
- output format of AI information will be named <Species name>_HGT according to the format of protein fasta (<Species name>.fasta), and it can be merged into one file
+The output format of AI information will be named <Species name>_HGT according to the format of protein fasta (<Species name>.fasta), and it can be merged into one file
  ```
 cat *_HGT > combind_HGT.txt  
  ```
-  
-  
-  
-  
+The combind_HGT.txt contain 14 columns and were seprated by tabs:
+1. Species
+2. geneID
+3. CAZyme_ID (GH)
+4. OrthogroupID (assigned by Orthofinder)
+5. DB_type (Both: Metazoan and non-Metazaon have blast hit; Only NonMeta: only non-Metazoan have blast hit; OnlyMeta: only Metazoan have blast hit)  
+6. AI_index (>0 are likely HGT genes; estimated by the evalue of two database blast against results)  
+7. HGT_index (>0 are likely HGT genes; etimated by the Bitscore difference of two database)  
+8-12. The best hit of non-Metazoan corresponding King, Phylum, Order , Genus, Specie
+13. hitID (The best blast hit ID of non-Metazoan)
+14. gene_sequence (The sequence of this gene which were used to plot HGT phylogeny tree in this study)  
   
   
 
