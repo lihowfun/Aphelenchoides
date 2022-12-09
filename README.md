@@ -6,6 +6,28 @@
 
 ## Statistic of repeat elements (fig1 and fig2)
 ### after running Repeatmoduler and TransposonPSI we combined the fasta file together to cluster the consensus repeat elements using USEARCH. And the consensus of repeat fasta files were used to compute the repeat locations using Repeatmasker. The output of Repeatmasker <genome fasta name>.out can use the bedtools merge tool to merge the overlap regions and then used the scrips below to count the repeats size.  
+
+&nbsp;
+### RepeatModuler, TransposonPSI, USEARCH and Repeatmasker commonds are following:  
+```
+# RepeatModuler 
+RepeatModeler -engine ncbi -pa 5 -database <genome fasta Library>  # use BuildDatabase to creat genome fasta Library first
+
+# TransposonPSI
+transposonPSI.pl <genome fasta> nuc
+  
+# USEARCH
+usearch8.1.1861_i86linux64 -sortbylength merged.fa -fastaout seqs_sorted.fasta # merged.fa is the file cat from RepeatModuler and TransposonPSI output  
+usearch8.1.1861_i86linux64 -strand both -cluster_smallmem seqs_sorted.fasta -id 0.8 -centroids nr.fasta -uc clusters.uc  
+  
+  
+# Repeatmasker  
+  
+```
+mkdir denovoRepeat  
+RepeatMasker -pa <CPU number> -gff  -dir denovoRepeat  -lib repeatLib.fa  -xsmall <genome fasta> # repeatLib.fa is the repeat library created by the USEARCH  
+```  
+### Statistic  
 ```
 perl repeatmasker.normalized.pl <Repeatmasker output>
 perl repeatmasker.stat.pl <normalized output>
@@ -33,7 +55,7 @@ perl Orthofinder.one2one_loca.pl Orthogroups.txt SequenceIDs.txt SpeciesIDs.txt 
 ### To estimate the HGT possibility of each genes across nematodes, we applied Alienness Index (AI) (Rancurel et al., 2017; http://alienness.sophia.inra.fr/cgi/index.cgi) method. To speed up the running process, we sepatated the Metazoan and non-Metazoan into two fasta files from NCBI NR database using NCBI tool (ncbi-blast-2.11.0).
 &nbsp;
 ncbi-blast-2.11.0 is need to install and export (ncbi-blast-2.11.0/bin) to environment  
-#### The example of Metazoan data ara following below:  
+#### The example of Metazoan database were generated following the command below:  
   
 ```  
 get_species_taxids.sh -n metazoans # search the taxID of Metazoan
