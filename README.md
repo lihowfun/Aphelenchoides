@@ -76,7 +76,7 @@ diamond makedb -d metazoan --in metazoan.fa # diamond database format
 * nodesDB.txt  (https://drive.google.com/file/d/11HHqQslWfJ7Id8fqV8hLJ2DDFFRkO_pR/view?usp=share_link; we generated in the beginning of 2022, it should be updated when NR have a better version)
   
  ```
-export PATH="HGT_scrpts" # export the environment HGT scripts  
+export PATH="HGT_scrpts" # export the environment of HGT scripts  
 perl AI_index.batch.pl . <Metazoan.dmnd> <non-Metazoan.dmnd>
   
  ```
